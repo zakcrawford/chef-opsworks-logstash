@@ -30,6 +30,9 @@ output {
 <% if @elasticsearch_cluster -%>
     cluster => "<%= @elasticsearch_cluster %>"
 <% end -%>
+<% if @elasticsearch_protocol -%>
+    protocol => "<%= @elasticsearch_protocol %>"
+<% end -%>
 <% if @elasticsearch_embedded -%>
     embedded => true
 <% end -%>
