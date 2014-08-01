@@ -31,7 +31,3 @@ end
 logstash_service name do
   action [:start]
 end
-
-execute "make sure the logstash_#{name} service started" do
-  command "service logstash_#{name} start"
-end
