@@ -1,10 +1,13 @@
-set[:logstash][:instance][:server][:elasticsearch_ip] = OpsWorksUtils::Helpers::layer_elb(node, 'elasticsearch')
-set[:logstash][:instance][:server][:elasticsearch_cluster] = 'logstash'
 set[:logstash][:instance][:server][:enable_embedded_es] = false
 set[:logstash][:instance][:server][:config_templates_cookbook] = 'opsworks_logstash'
 set[:logstash][:instance][:server][:config_templates] = {
     'server' => 'server.conf.erb',
 }
+set[:logstash][:instance][:server][:config_templates_variables][:elasticsearch_ip] = OpsWorksUtils::Helpers::layer_elb(node, 'elasticsearch')
+set[:logstash][:instance][:server][:config_templates_variables][:elasticsearch_cluster] = 'logstash'
+set[:logstash][:instance][:server][:config_templates_variables][:elasticsearch_protocol] = 'http'
+set[:logstash][:instance][:server][:config_templates_variables][:elasticsearch_port] = '9200'
+set[:logstash][:instance][:server][:config_templates_variables][:elasticsearch_embedded] = false
 
 set['logstash']['instance']['default']['version']        = '1.4.2'
 set['logstash']['instance']['default']['source_url']     = 'https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz'

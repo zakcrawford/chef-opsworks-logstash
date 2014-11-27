@@ -4,7 +4,7 @@ maintainer_email 'adrien.brault@gmail.com'
 license          'MIT'
 description      'Logstash OpsWorks'
 long_description 'Logstash OpsWorks'
-version          '0.1.2'
+version          '0.1.3'
 
 depends 'opsworks_utils'
 depends 'logstash'
